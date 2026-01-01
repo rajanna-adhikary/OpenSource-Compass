@@ -128,6 +128,16 @@
             color: var(--secondary-blue);
         }
 
+        .card-link {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .card-link:hover .card {
+            transform: translateY(-10px);
+            box-shadow: 0 16px 35px rgba(0,0,0,0.12);
+        }
         /* ---------- Programs Section ---------- */
         .programs {
             background-color: var(--light-gray);
@@ -226,23 +236,29 @@
     </p>
 
     <div class="card-container">
-        <div class="card">
-            <h4>Social Winter of Code</h4>
-            <p>Beginner-focused winter open-source program.</p>
-            <span class="badge">Upcoming</span>
-        </div>
+        <a href="https://socialwinterofcode.com" class="card-link" target="_blank" rel="noopener noreferrer">
+            <div class="card">
+             <h4>Social Winter of Code</h4>
+                <p>Beginner-focused winter open-source program.</p>
+                <span class="badge">Upcoming</span>
+            </div>
+        </a>
+        
+        <a href="https://gssoc.girlscript.tech" class="card-link" target="_blank" rel="noopener noreferrer">
+            <div class="card">
+                <h4>GirlScript Summer of Code</h4>
+                <p>Large-scale open-source program for students.</p>
+                <span class="badge">Annual</span>
+            </div>
+        </a>
 
-        <div class="card">
-            <h4>GirlScript Summer of Code</h4>
-            <p>Large-scale open-source program for students.</p>
-            <span class="badge">Annual</span>
-        </div>
-
-        <div class="card">
-            <h4>Google Summer of Code</h4>
-            <p>Global program for advanced contributors.</p>
-            <span class="badge">Advanced</span>
-        </div>
+        <a href="https://summerofcode.withgoogle.com" class="card-link" target="_blank" rel="noopener noreferrer">
+            <div class="card">
+                <h4>Google Summer of Code</h4>
+                <p>Global program for advanced contributors.</p>
+                <span class="badge">Advanced</span>
+            </div>
+        </a>
     </div>
 </section>
 
