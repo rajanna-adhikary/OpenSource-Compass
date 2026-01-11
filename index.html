@@ -407,6 +407,38 @@
             transition: all 0.35s ease;
             z-index: 999;
         }
+        /* Dark Mode Variable Overrides */
+        body.dark-mode {
+    --warm-cream: #0D1117;
+    --light-parchment: #161B22;
+    --charcoal-dark: #F0F6FC;
+    --text-secondary: #8B949E;
+    --deep-navy: #ECF0F1;
+}
+
+/* Specific Dark Mode Adjustments */
+body.dark-mode header {
+    background: rgba(13, 17, 23, 0.98);
+}
+
+body.dark-mode .card {
+    background: rgba(22, 27, 34, 0.95);
+    border-color: rgba(212, 175, 55, 0.2);
+}
+
+body.dark-mode .hero {
+    background: 
+        radial-gradient(ellipse at center, rgba(13, 17, 23, 0.85) 0%, transparent 70%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 700"><defs><linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="%23D4AF37" stop-opacity="0.2"/><stop offset="50%" stop-color="%230D1117"/><stop offset="100%" stop-color="%23B8860B" stop-opacity="0.1"/></linearGradient></defs><rect width="1200" height="700" fill="url(%23g)"/><path d="M0 300Q300 150 600 280Q900 400 1200 280L1200 700L0 700Z" fill="%23D4AF37" opacity="0.1"/></svg>') center/cover;
+}
+
+body.dark-mode .hero p {
+    color: var(--charcoal-dark);
+}
+
+body.dark-mode .programs {
+    background: linear-gradient(135deg, #010409 0%, #0D1117 100%);
+}
 
         /* Responsive Adjustments */
         @media (max-width: 1024px) {
@@ -463,6 +495,9 @@
                 <a href="./frontend/pages/contributors.html">Contributors</a>
                 <a href="./frontend/pages/faq.html">FAQ</a>
                 <a href="./frontend/pages/Contribute.html">Contribute</a>
+                <button id="themeToggle" title="Toggle Dark Mode" style="background: none; border: none; color: var(--primary-gold); cursor: pointer; font-size: 1.1rem; margin-left: 0.5rem; transition: transform 0.3s ease;">
+                    <i class="fas fa-moon"></i>
+                </button>
             </div>
         </div>
     </header>
@@ -577,6 +612,34 @@
             const scrolled = window.pageYOffset * 0.3;
             document.querySelector('.hero').style.transform = `translateY(${scrolled}px)`;
         });
+
+        /* Add this to the existing <script> in index.html */
+
+const themeToggle = document.getElementById('themeToggle');
+const themeIcon = themeToggle.querySelector('i');
+
+// Check for saved user preference
+if (localStorage.getItem('theme') === 'dark') {
+    document.body.classList.add('dark-mode');
+    themeIcon.classList.replace('fa-moon', 'fa-sun');
+}
+
+themeToggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark-mode');
+    
+    // Update icon and save preference
+    if (document.body.classList.contains('dark-mode')) {
+        themeIcon.classList.replace('fa-moon', 'fa-sun');
+        localStorage.setItem('theme', 'dark');
+    } else {
+        themeIcon.classList.replace('fa-sun', 'fa-moon');
+        localStorage.setItem('theme', 'light');
+    }
+    
+    // Subtle button animation
+    themeToggle.style.transform = 'scale(1.2)';
+    setTimeout(() => themeToggle.style.transform = 'scale(1)', 200);
+});
     </script>
 </body>
 </html>
