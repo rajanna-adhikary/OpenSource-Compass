@@ -183,7 +183,12 @@
   </header>
 
   <div class="resources-list">
-    <div class="resource-tile">
+   <div class="empty-state" id="resources-empty" style="display: none;">
+  <div class="empty-icon">📭</div>
+  <h4>No resources available</h4>
+  <p>Resources will appear here once they are added.</p>
+</div>
+<div class="resource-tile">
       <div class="tile-accent" style="background-color: #d4af37;"></div>
       <div class="tile-icon">📚</div>
       <div class="tile-content">
@@ -224,7 +229,7 @@
         <p>Learn Markdown syntax, formatting rules, and best practices for clean documentation.</p>
         <a href="https://www.markdownguide.org" target="_blank" rel="noopener">Read guide →</a>
       </div>
-    </div>
+    </div> 
   </div>
 </section>
 <section class="templates-section">
@@ -765,6 +770,9 @@
 
 
   <script src="../js/chatbot.js"></script>
+
+  <script src="../js/resources.js"></script>
+
   <script src="../js/main.js"></script>
 
   <button id="scrollTopBtn" title="Back to Top">
